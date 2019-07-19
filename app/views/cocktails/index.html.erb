@@ -2,10 +2,12 @@
 
 <%= link_to 'Create New Cocktail', new_cocktail_path %>
 
-<div class="cards">
-  <% @cocktails.each do |cocktail| %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<% cocktail.photo_url %>)">
-    <%=link_to cocktail.name, cocktail_path(cocktail) %>
+<div class="card-container">
+  <div class="cards">
+    <% @cocktails.each do |cocktail| %>
+    <div class="card-category" style="background-image: url('<%= image_path cocktail.photo_url %>')">
+      <%=link_to cocktail.name, cocktail_path(cocktail) %>
+    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
